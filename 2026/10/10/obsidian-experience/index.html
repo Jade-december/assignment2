@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <title>{% if page.title %}Obsidian 初体验：我的知识管理工具选择 - 我的学习博客{% else %}我的学习博客{% endif %}</title>
+    <link rel="stylesheet" href="/assignment2/assets/css/style.css">
+    <link rel="alternate" type="application/rss+xml" title="我的学习博客" href="/assignment2/feed.xml">
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+        <a class="site-brand" href="/assignment2/">
+            <span class="brand-icon">📝</span>
+            <span class="brand-text">我的学习博客</span>
+        </a>
+        <nav class="site-nav">
+            <button class="nav-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                
+                <li>
+                    <a href="/assignment2/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/assignment2/archive/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        归档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/assignment2/tags/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        标签
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/assignment2/about/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        关于
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        ---
+layout: default
+---
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">Obsidian 初体验：我的知识管理工具选择</h1>
+        <div class="post-meta">
+            <time datetime="2026-10-10T00:00:00.000Z">
+                2026年10月10日
+            </time>
+            {% if page.categories.size > 0 %}
+            <span class="post-categories">
+                
+            </span>
+            {% endif %}
+            {% if page.tags.size > 0 %}
+            <span class="post-tags">
+                
+            </span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-content">
+        <h2>为什么选择 Obsidian？</h2>
+<p>在尝试了多款笔记软件之后，我最终选择了 <strong>Obsidian</strong> 作为我的个人知识管理工具。以下是我选择它的几个主要原因：</p>
+<h3>1. 本地文件，数据安全</h3>
+<p>Obsidian 的所有笔记都以 Markdown 格式存储在本地，你完全拥有自己的数据。不用担心平台关闭、数据丢失或导出困难的问题。</p>
+<blockquote>
+<p>你的数据就是你的，永远在你自己的电脑上。</p>
+</blockquote>
+<h3>2. 双向链接，构建知识网络</h3>
+<p>Obsidian 最强大的功能之一就是<strong>双向链接</strong>。通过 <code>[[笔记名称]]</code> 的语法，你可以快速在笔记之间建立联系，逐渐形成自己的知识网络。</p>
+<h3>3. 插件生态，高度可定制</h3>
+<p>Obsidian 拥有丰富的社区插件生态，你可以根据自己的需求定制功能：</p>
+<ul>
+<li><strong>核心插件</strong>：标签、搜索、大纲、反向链接等</li>
+<li><strong>社区插件</strong>：日历、看板、思维导图、任务管理等</li>
+<li><strong>主题</strong>：丰富的外观主题可选</li>
+</ul>
+<h3>4. Markdown 原生支持</h3>
+<p>完全基于 Markdown，学习成本低，迁移方便，而且与 AI 工具完美配合。</p>
+<h2>我的 Obsidian 配置</h2>
+<h3>必备插件</h3>
+<ol>
+<li><strong>Calendar</strong> - 日历视图，方便日记和每日笔记</li>
+<li><strong>Templater</strong> - 模板插件，快速创建标准化笔记</li>
+<li><strong>Dataview</strong> - 数据查询，像数据库一样管理笔记</li>
+<li><strong>Excalidraw</strong> - 手绘风格图表</li>
+</ol>
+<h3>笔记分类方式</h3>
+<p>我目前的笔记结构是这样的：</p>
+<pre><code>📁 000 - 每日笔记
+📁 100 - 学习笔记
+   📁 新媒体交互设计
+   📁 编程开发
+📁 200 - 项目笔记
+📁 300 - 读书摘录
+📁 400 - 生活记录
+📁 900 - 归档
+</code></pre>
+<h2>使用感受</h2>
+<p>使用 Obsidian 一段时间后，最大的感受是：<strong>知识不再是孤立的碎片，而是逐渐连接成网</strong>。</p>
+<p>当你在写新笔记时，看到反向链接里跳出以前写过的相关内容，那种&quot;原来我之前想过这个问题&quot;的惊喜感，是其他笔记软件很难给到的。</p>
+<h2>与 AI 结合的工作流</h2>
+<p>我目前的知识管理工作流是这样的：</p>
+<ol>
+<li><strong>输入</strong>：看书、上课、浏览文章时，随手记录想法</li>
+<li><strong>整理</strong>：定期用 AI 辅助整理笔记，提炼要点</li>
+<li><strong>连接</strong>：在 Obsidian 中建立笔记之间的链接</li>
+<li><strong>输出</strong>：基于笔记写博客文章，分享知识</li>
+</ol>
+<blockquote>
+<p>输入 → 整理 → 连接 → 输出，形成完整的知识循环</p>
+</blockquote>
+<h2>总结</h2>
+<p>Obsidian 不仅仅是一个笔记工具，它更像是一个<strong>第二大脑</strong>，帮你存储、连接和产出知识。</p>
+<p>如果你也在寻找一款适合自己的知识管理工具，不妨试试 Obsidian，说不定它也会成为你的效率神器。</p>
+
+    </div>
+
+    <footer class="post-footer">
+        <nav class="post-nav">
+            
+            <a class="prev" href="/2026/10/08/jekyll-blog-tutorial/">
+                ← 用 Jekyll + GitHub Pages 搭建个人博客教程
+            </a>
+            
+            
+            <a class="next" href="/2026/10/12/markdown-intro/">
+                Markdown 入门学习笔记 →
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-info">
+            <p>&copy; {{ site.time | date: '%Y' }} 你的名字. All rights reserved.</p>
+            <p class="footer-tagline">记录学习心得，分享知识经验</p>
+        </div>
+        <div class="footer-social">
+            {% if site.social.github %}
+            <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+            </a>
+            {% endif %}
+            {% if site.social.email %}
+            <a href="mailto:{{ site.social.email }}" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer-powered">
+        <p>Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a> & <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

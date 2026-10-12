@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <title>{% if page.title %}用 Jekyll + GitHub Pages 搭建个人博客教程 - 我的学习博客{% else %}我的学习博客{% endif %}</title>
+    <link rel="stylesheet" href="/assignment2/assets/css/style.css">
+    <link rel="alternate" type="application/rss+xml" title="我的学习博客" href="/assignment2/feed.xml">
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-inner">
+        <a class="site-brand" href="/assignment2/">
+            <span class="brand-icon">📝</span>
+            <span class="brand-text">我的学习博客</span>
+        </a>
+        <nav class="site-nav">
+            <button class="nav-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                
+                <li>
+                    <a href="/assignment2/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        首页
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/assignment2/archive/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        归档
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/assignment2/tags/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        标签
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/assignment2/about/" 
+                       class="{% if page.url == item.url %}active{% endif %}">
+                        关于
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <main class="container">
+        ---
+layout: default
+---
+<article class="post">
+    <header class="post-header">
+        <h1 class="post-title">用 Jekyll + GitHub Pages 搭建个人博客教程</h1>
+        <div class="post-meta">
+            <time datetime="2026-10-08T00:00:00.000Z">
+                2026年10月08日
+            </time>
+            {% if page.categories.size > 0 %}
+            <span class="post-categories">
+                
+            </span>
+            {% endif %}
+            {% if page.tags.size > 0 %}
+            <span class="post-tags">
+                
+            </span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-content">
+        <h2>为什么要建个人博客？</h2>
+<p>在这个社交媒体泛滥的时代，为什么还要建一个个人博客呢？我觉得有以下几个原因：</p>
+<ol>
+<li><strong>拥有自己的数字花园</strong>：社交媒体的数据不属于你，但博客是你自己的</li>
+<li><strong>倒逼输入与输出</strong>：写博客能让你更认真地学习和思考</li>
+<li><strong>建立个人品牌</strong>：分享知识，结识志同道合的朋友</li>
+<li><strong>记录成长轨迹</strong>：多年后回头看，会很有成就感</li>
+</ol>
+<h2>技术选型</h2>
+<p>常见的静态博客生成器有这些：</p>
+<table>
+<thead>
+<tr>
+<th>生成器</th>
+<th>与 GitHub Pages 关系</th>
+<th>内容模型</th>
+<th>适合</th>
+<th>主要短板</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jekyll</strong></td>
+<td>✅ 原生，自动构建免 Actions</td>
+<td>博客式（按日期文章）</td>
+<td>个人博客、写作记录</td>
+<td>Ruby 环境、构建较慢、插件白名单受限</td>
+</tr>
+<tr>
+<td><strong>MkDocs Material</strong></td>
+<td>需 Actions</td>
+<td>文档/知识库（侧边目录）</td>
+<td>结构化笔记、Wiki</td>
+<td>需自己配部署</td>
+</tr>
+<tr>
+<td><strong>VitePress</strong></td>
+<td>需 Actions</td>
+<td>现代文档</td>
+<td>技术笔记</td>
+<td>需 Node 环境</td>
+</tr>
+<tr>
+<td><strong>Hugo</strong></td>
+<td>需 Actions</td>
+<td>任意（极快）</td>
+<td>海量笔记</td>
+<td>模板语法略陡</td>
+</tr>
+</tbody>
+</table>
+<p>对于新手来说，<strong>Jekyll + GitHub Pages</strong> 是最简单的组合，因为：</p>
+<ul>
+<li>GitHub Pages <strong>原生支持</strong> Jekyll，推送代码后自动构建</li>
+<li>不需要配置复杂的 CI/CD</li>
+<li>主题和插件生态成熟</li>
+<li>完全免费</li>
+</ul>
+<h2>准备工作</h2>
+<h3>1. 注册 GitHub 账号</h3>
+<p>如果你还没有 GitHub 账号，先去 <a href="https://github.com/">GitHub 官网</a> 注册一个。</p>
+<h3>2. 安装 Git</h3>
+<p>下载并安装 <a href="https://git-scm.com/">Git</a>，用于版本控制和代码推送。</p>
+<h3>3. （可选）安装 Jekyll 本地环境</h3>
+<p>如果想在本地预览博客效果，需要安装 Ruby 和 Jekyll。不过这一步可以先跳过，直接在 GitHub 上部署也行。</p>
+<h2>搭建步骤</h2>
+<h3>第一步：创建仓库</h3>
+<ol>
+<li>在 GitHub 上新建一个仓库</li>
+<li>仓库名可以叫 <code>blog</code> 或 <code>assignment2</code>（根据课程要求）</li>
+<li>选择 Public（公开）</li>
+<li>勾选 “Add a README file”</li>
+</ol>
+<h3>第二步：创建博客结构</h3>
+<p>在仓库中创建以下文件结构：</p>
+<pre><code>blog/
+├── _config.yml          # 站点配置
+├── index.html           # 首页
+├── about.md             # 关于页
+├── _posts/              # 文章目录
+│   └── 2026-10-08-hello-world.md
+├── _layouts/            # 布局模板
+│   ├── default.html
+│   ├── home.html
+│   └── post.html
+├── _includes/           # 可复用组件
+│   ├── header.html
+│   └── footer.html
+└── assets/
+    └── css/
+        └── style.css    # 样式文件
+</code></pre>
+<h3>第三步：配置 _config.yml</h3>
+<p>这是 Jekyll 的核心配置文件：</p>
+<pre><code class="language-yaml">title: &quot;我的博客&quot;
+description: &quot;记录学习与成长&quot;
+author: &quot;你的名字&quot;
+baseurl: &quot;&quot;
+url: &quot;https://yourname.github.io&quot;
+
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+</code></pre>
+<h3>第四步：写第一篇文章</h3>
+<p>在 <code>_posts</code> 目录下创建文件，文件名格式为 <code>YYYY-MM-DD-文章标题.md</code>：</p>
+<pre><code class="language-markdown">---
+layout: post
+title: &quot;Hello World!&quot;
+description: &quot;我的第一篇博客文章&quot;
+date: 2026-10-08
+categories: [随笔]
+tags: [博客]
+---
+
+## 你好，世界！
+
+这是我的第一篇博客文章。
+</code></pre>
+<h3>第五步：开启 GitHub Pages</h3>
+<ol>
+<li>进入仓库的 <strong>Settings</strong> 页面</li>
+<li>找到 <strong>Pages</strong> 选项</li>
+<li>在 <strong>Build and deployment</strong> 下，Source 选择 <strong>Deploy from a branch</strong></li>
+<li>Branch 选择 <strong>main</strong> 分支，目录选择 <strong>/ (root)</strong></li>
+<li>点击 <strong>Save</strong></li>
+</ol>
+<p>稍等几分钟，你的博客就上线了！访问地址是：</p>
+<pre><code>https://你的用户名.github.io/仓库名/
+</code></pre>
+<blockquote>
+<p>注意：如果仓库名是 <code>你的用户名.github.io</code>，那么访问地址就是 <code>https://你的用户名.github.io/</code>，<code>baseurl</code> 留空即可。</p>
+</blockquote>
+<h2>写博客的小技巧</h2>
+<h3>1. 用好 Front Matter</h3>
+<p>每篇文章开头的 YAML 配置叫 Front Matter，可以设置标题、日期、分类、标签等。</p>
+<h3>2. 图片怎么处理？</h3>
+<p>推荐使用图床服务，比如：</p>
+<ul>
+<li>GitHub 仓库本身当图床</li>
+<li>Gitee + PicGo</li>
+<li>各种云存储服务</li>
+</ul>
+<h3>3. 保持更新频率</h3>
+<p>不用追求每天都写，但尽量保持一定的更新频率，比如每周一篇。</p>
+<h2>常见问题</h2>
+<p><strong>Q：构建失败怎么办？</strong>
+A：检查 <code>_config.yml</code> 格式是否正确，YAML 对缩进要求很严格。</p>
+<p><strong>Q：怎么自定义域名？</strong>
+A：在仓库设置的 Pages 页面里可以配置 Custom domain。</p>
+<p><strong>Q：可以用评论系统吗？</strong>
+A：可以接入 Disqus、Utterances、Giscus 等第三方评论系统。</p>
+<h2>总结</h2>
+<p>搭建一个个人博客其实并不难，难的是<strong>坚持写下去</strong>。</p>
+<p>希望这篇教程能帮到你，也欢迎在评论区留下你的博客地址，大家互相学习！</p>
+
+    </div>
+
+    <footer class="post-footer">
+        <nav class="post-nav">
+            
+            <a class="prev" href="/2026/10/05/ai-and-designer/">
+                ← AI 时代的设计师：工具是帮手，不是对手
+            </a>
+            
+            
+            <a class="next" href="/2026/10/10/obsidian-experience/">
+                Obsidian 初体验：我的知识管理工具选择 →
+            </a>
+            
+        </nav>
+    </footer>
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-info">
+            <p>&copy; {{ site.time | date: '%Y' }} 你的名字. All rights reserved.</p>
+            <p class="footer-tagline">记录学习心得，分享知识经验</p>
+        </div>
+        <div class="footer-social">
+            {% if site.social.github %}
+            <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+            </a>
+            {% endif %}
+            {% if site.social.email %}
+            <a href="mailto:{{ site.social.email }}" class="social-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer-powered">
+        <p>Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a> & <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
