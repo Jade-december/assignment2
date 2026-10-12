@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <title>关于我 - 我的学习博客{% else %}我的学习博客</title>
+    <meta name="description" content="关于我">
+    <title>关于我 - 我的学习博客</title>
     <link rel="stylesheet" href="/assignment2/assets/css/style.css">
-    <link rel="alternate" type="application/rss+xml" title="我的学习博客" href="/assignment2/feed.xml">
 </head>
 <body>
-    <header class="site-header">
+    
+<header class="site-header">
     <div class="container header-inner">
         <a class="site-brand" href="/assignment2/">
             <span class="brand-icon">📝</span>
@@ -22,41 +22,14 @@
                 <span></span>
             </button>
             <ul class="nav-links">
-                
-                <li>
-                    <a href="/assignment2/" 
-                       class="{% if page.url == item.url %}active{% endif %}">
-                        首页
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="/assignment2/archive/" 
-                       class="{% if page.url == item.url %}active{% endif %}">
-                        归档
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="/assignment2/tags/" 
-                       class="{% if page.url == item.url %}active{% endif %}">
-                        标签
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="/assignment2/about/" 
-                       class="{% if page.url == item.url %}active{% endif %}">
-                        关于
-                    </a>
-                </li>
-                
+                <li><a href="/assignment2/" >首页</a></li>
+<li><a href="/assignment2/archive/" >归档</a></li>
+<li><a href="/assignment2/tags/" >标签</a></li>
+<li><a href="/assignment2/about/" class="active">关于</a></li>
             </ul>
         </nav>
     </div>
 </header>
-
-
     <main class="container">
         <section class="about-section">
     <div class="about-header">
@@ -111,34 +84,29 @@
 </section>
 
     </main>
-
-    <footer class="site-footer">
+    
+<footer class="site-footer">
     <div class="container footer-inner">
         <div class="footer-info">
-            <p>&copy; {{ site.time | date: '%Y' }} 你的名字. All rights reserved.</p>
+            <p>&copy; 2026 你的名字. All rights reserved.</p>
             <p class="footer-tagline">记录学习心得，分享知识经验</p>
         </div>
         <div class="footer-social">
-            {% if site.social.github %}
-            <a href="https://github.com/{{ site.social.github }}" target="_blank" rel="noopener" class="social-link">
+            <a href="https://github.com/yourname" target="_blank" rel="noopener" class="social-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
             </a>
-            {% endif %}
-            {% if site.social.email %}
-            <a href="mailto:{{ site.social.email }}" class="social-link">
+            <a href="mailto:your@email.com" class="social-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
             </a>
-            {% endif %}
         </div>
     </div>
     <div class="footer-powered">
         <p>Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll</a> & <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
     </div>
 </footer>
-
 </body>
 </html>
